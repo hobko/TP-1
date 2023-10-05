@@ -7,7 +7,7 @@ Akékoľvek zmeny stačí uložiť v IDE a refreshnut stránku.
 
 ## Štruktúra
 
-Spusti `ng generate component component/component-name` na vygenerovanie noveho componentu. Všetky informácie
+Spusti `ng generate component components/component-name` na vygenerovanie noveho componentu. Všetky informácie
 sa nachádzajú na tejto linke [lešenie](https://angular.io/guide/file-structure)
 ## Build
 
