@@ -1,4 +1,4 @@
-# Tp1
+# Tp-1
 
 ## Spustenenie servera
 
