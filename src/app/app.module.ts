@@ -6,17 +6,21 @@ import { ExampleComponent } from './components/example/example.component';
 import {RouterOutlet} from "@angular/router";
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { MapboxComponent } from './components/mapbox/mapbox.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     ExampleComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MapboxComponent
   ],
   imports: [
     BrowserModule,
-    RouterOutlet
+    RouterOutlet,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
