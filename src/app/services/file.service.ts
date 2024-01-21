@@ -15,8 +15,18 @@ export class FileService {
     return this.http.get<{ files: string[] }>(this.apiUrl);
   }
 
-  getGeoJsonFile(fileName: string): Observable<any> {
+  getGpxFile(fileName: string): Observable<any> {
     const gpxUrl = `http://127.0.0.1:8000/api/getgpx/${fileName}`; // Replace with your GPX endpoint
+
+    return this.http.get(gpxUrl, { responseType: 'text' }).pipe(
+      map((gpxData: string) => {
+        const gpxXml = new DOMParser().parseFromString(gpxData, 'text/xml');
+        return toGeoJSON.gpx(gpxXml);
+      })
+    );
+  }
+  getGpxMatchedFile(fileName: string): Observable<any> {
+    const gpxUrl = `http://127.0.0.1:8000/api/getgpx/matched/${fileName}`; // Replace with your GPX endpoint
 
     return this.http.get(gpxUrl, { responseType: 'text' }).pipe(
       map((gpxData: string) => {

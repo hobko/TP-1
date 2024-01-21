@@ -4,6 +4,7 @@
 }
 
 .map-wrap {
+  position: relative;
   flex: 1;
   height: calc(70vh); /* calculate height of the screen minus the heading */
 }
@@ -29,4 +30,27 @@
   margin-bottom: 10px;
   cursor: pointer;
   /* Add styling as needed */
+}
+
+.legend {
+  position: absolute;
+  top: 10px; /* adjust as needed */
+  right: 40px; /* adjust as needed */
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 1; /* ensure it appears above the map */
+}
+
+.legend-item {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
 }

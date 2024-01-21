@@ -1,6 +1,18 @@
 <div class="container">
   <div class="map-wrap">
     <div class="map" #map></div>
+
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-color" style="background-color: blue;"></div>
+        <div class="legend-label">Map MatchedOriginal</div>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background-color: red;"></div>
+        <div class="legend-label">Original</div>
+      </div>
+    </div>
   </div>
-  
-<app-map-option (optionClicked)="handleOptionClick($event)"></app-map-option>
+
+  <app-map-option (optionClicked)="handleOptionClick($event)"></app-map-option>
+</div>

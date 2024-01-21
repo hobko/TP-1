@@ -1,0 +1,44 @@
+/* Apply styling to the container */
+div {
+    max-width: 400px;
+    margin: 10px auto;
+    text-align: center;
+  }
+  
+  /* Style the heading */
+  h2 {
+    color: #333;
+  }
+  
+  /* Style the file input */
+  input[type="file"] {
+    display: none; /* Hide the default file input */
+  }
+  
+  /* Style the custom file input button */
+  button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Style the file input label */
+  label {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Style the file input label on hover */
+  label:hover {
+    background-color: #45a049;
+  }
+  

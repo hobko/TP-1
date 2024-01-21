@@ -1,6 +1,6 @@
 // map.component.ts
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
-import { Map, MapStyle, config, GeoJSONSource, LngLatBoundsLike } from '@maptiler/sdk';
+import { Map, MapStyle, config, GeoJSONSource, LngLatBoundsLike, NavigationControl } from '@maptiler/sdk';
 import toGeoJSON from 'togeojson';
 import * as xml2js from 'xml-js';
 import { FileService } from '../../services/file.service';
@@ -46,28 +46,39 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   loadRouteFromFile(fileName: string): void {
-    this.fileService.getGeoJsonFile(fileName).subscribe(
-      (geoJsonData) => {
-        // Display the route
-        this.displayRoute(geoJsonData);
+    // Load the original GPX file
+    this.fileService.getGpxFile(fileName).subscribe(
+      (originalRouteData) => {
+        // Load the matched GPX file
+        const matchedFileName = fileName.replace('.gpx', '_matched.gpx');
+        this.fileService.getGpxMatchedFile(matchedFileName).subscribe(
+          (matchedRouteData) => {
+            // Display the original route
+            this.displayRoute(originalRouteData, 'original-route-layer', '#FF0000');
+
+            // Display the matched route
+            this.displayRoute(matchedRouteData, 'matched-route-layer', '#007BFF');
+          },
+          (error) => {
+            console.error('Error loading matched GeoJSON data:', error);
+          }
+        );
       },
       (error) => {
-        console.error('Error loading GeoJSON data:', error);
+        console.error('Error loading original GeoJSON data:', error);
       }
     );
   }
 
-  displayRoute(routeData: any): void {
+  displayRoute(routeData: any, layerId: string, lineColor: string): void {
     // Ensure the map is initialized
     if (!this.map) {
       console.error('Map not initialized');
       return;
     }
-    console.log('Route Data:', routeData); // Log routeData
 
-    const sourceId = 'route-source';
+    const sourceId = `${layerId}-source`;
 
-    // Add or update the GeoJSON source
     if (!this.map.getSource(sourceId)) {
       this.map.addSource(sourceId, {
         type: 'geojson',
@@ -78,20 +89,18 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       source.setData(routeData);
     }
 
-    // Add or update the line layer
-    if (!this.map.getLayer('route-layer')) {
+    if (!this.map.getLayer(layerId)) {
       this.map.addLayer({
-        id: 'route-layer',
+        id: layerId,
         type: 'line',
         source: sourceId,
         paint: {
-          'line-color': '#007BFF',
+          'line-color': lineColor,
           'line-width': 2
         }
       });
     }
 
-    // Optionally, zoom to fit the route
     const bounds = this.calculateBounds(routeData);
     this.map.fitBounds(bounds, { padding: 20 });
   }
