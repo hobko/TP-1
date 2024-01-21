@@ -1,13 +1,13 @@
 <!-- map-options.component.html -->
 <div class="options">
-    <h3>Zoznam nahranych tras</h3>
-    <ul>
+  <h3>Zoznam nahranych tras</h3>
+  <ul>
       <li *ngFor="let file of files" (click)="onOptionClick(file)">
-        <div class="file-item">
-          <span class="file-icon">&#128196;</span> <!-- Add an icon or customize as needed -->
-          <span class="file-name">{{ file }}</span>
-        </div>
+          <div class="file-item">
+              <!-- Use img tag to display the icon -->
+              <img src="../../../assets/Icons/gpx.png" alt="GPX Icon" class="file-icon"/>
+              <span class="file-name">{{ file }}</span>
+          </div>
       </li>
-    </ul>
-  </div>
-  
+  </ul>
+</div>
