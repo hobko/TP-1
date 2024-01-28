@@ -1,22 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
+import { environment } from '../../environments/environment';
 import * as toGeoJSON from 'togeojson';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FileService {
-  private apiUrl = ' http://127.0.0.1:8000/api/getfiles';  // Replace with your FastAPI server URL
-
+  private apiUrl = environment.apiUrl
+  private apiUrlgetFiles = `${this.apiUrl}getfiles`;
   constructor(private http: HttpClient) {}
 
   getFiles(): Observable<{ files: string[] }> {
-    return this.http.get<{ files: string[] }>(this.apiUrl);
+    return this.http.get<{ files: string[] }>(this.apiUrlgetFiles);
   }
 
   getGpxFile(fileName: string): Observable<any> {
-    const gpxUrl = `http://127.0.0.1:8000/api/getgpx/${fileName}`; // Replace with your GPX endpoint
+    const gpxUrl = `${this.apiUrl}getgpx/${fileName}`;
+
 
     return this.http.get(gpxUrl, { responseType: 'text' }).pipe(
       map((gpxData: string) => {
@@ -26,7 +28,7 @@ export class FileService {
     );
   }
   getGpxMatchedFile(fileName: string): Observable<any> {
-    const gpxUrl = `http://127.0.0.1:8000/api/getgpx/matched/${fileName}`; // Replace with your GPX endpoint
+    const gpxUrl = `${this.apiUrl}getgpx/matched/${fileName}`;
 
     return this.http.get(gpxUrl, { responseType: 'text' }).pipe(
       map((gpxData: string) => {
