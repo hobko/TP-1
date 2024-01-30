@@ -4,6 +4,7 @@
   color: white;
   padding: 10px;
   align-items: center;
+  position: relative;
 }
 
 .app-header h3{
@@ -16,20 +17,33 @@
   text-decoration: none;
 }
 
-.green-ball, .red-ball {
+.green-ball-isSystemUp, .red-ball-isSystemUp, 
+.green-ball-isMapmatchingUp, .red-ball-isMapmatchingUp {
+  position: absolute;
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  margin: 0 10px;
   padding-right: 5px;
 }
 
-.green-ball {
-  background-color: green;
+.green-ball-isSystemUp {
+  background-color: #39FF14;
+  right: 20px;
 }
 
-.red-ball {
+.red-ball-isSystemUp {
   background-color: red;
+  right: 20px;
+}
+
+.green-ball-isMapmatchingUp {
+  background-color: #39FF14;
+  right: 50px;
+}
+
+.red-ball-isMapmatchingUp {
+  background-color: red;
+  right: 50px;
 }
 
 

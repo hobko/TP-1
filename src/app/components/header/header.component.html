@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AngularBachelor</title>
   </head>
-
   <header>
     <div class="app-header">
       <h3>TP1</h3>
@@ -13,10 +13,10 @@
         <a href="http://tp-fei.ynet.sk/html/zapisnice.html">Zápisnice</a>
         <a href="http://tp-fei.ynet.sk/html/team.html">O nás</a>
       </div>
-      <!-- <h2>{{ welcomeMessage }}</h2> -->
-      <!-- style="display: none;" -->
-      <div class="green-ball" *ngIf="isSystemUp"></div>
-      <div class="red-ball" *ngIf="!isSystemUp"></div>
+      <div class="green-ball-isMapmatchingUp" *ngIf="isMapmatchingUp"></div>
+      <div class="red-ball-isMapmatchingUp" *ngIf="!isMapmatchingUp"></div>
+      <div class="green-ball-isSystemUp" *ngIf="isSystemUp"></div>
+      <div class="red-ball-isSystemUp" *ngIf="!isSystemUp"></div>
     </div>
   </header>
 </html>
