@@ -9,11 +9,14 @@
     <div class="app-header">
       <h3>TP1</h3>
       <div>
-
         <a href="/">Domov</a>
         <a href="http://tp-fei.ynet.sk/html/zapisnice.html">Zápisnice</a>
         <a href="http://tp-fei.ynet.sk/html/team.html">O nás</a>
       </div>
+      <!-- <h2>{{ welcomeMessage }}</h2> -->
+      <!-- style="display: none;" -->
+      <div class="green-ball" *ngIf="isSystemUp"></div>
+      <div class="red-ball" *ngIf="!isSystemUp"></div>
     </div>
   </header>
 </html>
