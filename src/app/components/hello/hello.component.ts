@@ -13,7 +13,7 @@ import { FileService } from 'src/app/services/file.service';
 })
 export class HelloComponent implements OnInit {
   message: string = '';
-  selectedFile: File | null = null; // Track the selected file
+  selectedFile: File | null = null; // trakuje vybrany element
   private apiUrl = environment.apiUrl;
   uploader: FileUploader = new FileUploader({ url: `${this.apiUrl}upload` });
 
@@ -38,6 +38,7 @@ export class HelloComponent implements OnInit {
         const jsonResponse = JSON.parse(response);
         this.toastr.success('Súbor sa nahral úspešne', 'Potvrdenie');
         this.fileService.notifyFilesUpdated();
+        this.deleteSelectedFile();
       }
     };
   }
@@ -58,7 +59,6 @@ export class HelloComponent implements OnInit {
   // Delete the selected file
   deleteSelectedFile() {
     this.selectedFile = null;
-    // Optionally, clear the file input
     const fileInput = document.getElementById('fileInput') as HTMLInputElement;
     if (fileInput) {
       fileInput.value = '';
