@@ -1,24 +1,32 @@
 .container {
   display: flex;
-  width: 100%;
+  position: relative; /* Set the container to relative positioning */
+}
+
+.app-hello {
+  width: 20%; /* Adjust the width as needed */
+  box-sizing: border-box;
 }
 
 .map-wrap {
+  flex: 1; /* Take up the remaining space */
   position: relative;
-  flex: 1;
   height: calc(70vh); /* calculate height of the screen minus the heading */
+  box-sizing: border-box;
+  margin-left: 30px; /* Adjust to match the left offset of app-hello */
 }
 
 .map {
-  margin-left: 5%;
+  margin-top: 1%;
+  margin-bottom: 1%;
   width: 100%;
   height: 100%;
 }
 
 .options {
   width: 40%; /* Adjust as needed */
-  
   box-sizing: border-box;
+  margin-left: 10px; /* Adjust the margin to set the gap between map and options */
 }
 
 .options ul {
