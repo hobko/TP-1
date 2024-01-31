@@ -3,7 +3,7 @@ import { FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from '../../services/api.service';
 import { environment } from '../../../environments/environment';
-import { endpoints } from '../../../environments/endpoints';
+
 
 @Component({
   selector: 'app-hello',
@@ -12,6 +12,7 @@ import { endpoints } from '../../../environments/endpoints';
 })
 export class HelloComponent implements OnInit {
   message: string = '';
+  selectedFile: File | null = null; // Track the selected file
   private apiUrl = environment.apiUrl;
   uploader: FileUploader = new FileUploader({ url: `${this.apiUrl}upload` });
 
@@ -37,7 +38,26 @@ export class HelloComponent implements OnInit {
     };
   }
 
+  // Handle file selection
+  onFileSelected(event: any) {
+    const fileInput = event.target;
+    if (fileInput.files && fileInput.files.length > 0) {
+      this.selectedFile = fileInput.files[0];
+    }
+  }
+
+  // Upload the selected file
   uploadFile() {
     this.uploader.uploadAll();
+  }
+
+  // Delete the selected file
+  deleteSelectedFile() {
+    this.selectedFile = null;
+    // Optionally, clear the file input
+    const fileInput = document.getElementById('fileInput') as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = '';
+    }
   }
 }
