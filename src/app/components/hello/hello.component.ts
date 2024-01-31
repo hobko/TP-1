@@ -3,6 +3,7 @@ import { FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from '../../services/api.service';
 import { environment } from '../../../environments/environment';
+import { FileService } from 'src/app/services/file.service';
 
 
 @Component({
@@ -16,7 +17,9 @@ export class HelloComponent implements OnInit {
   private apiUrl = environment.apiUrl;
   uploader: FileUploader = new FileUploader({ url: `${this.apiUrl}upload` });
 
-  constructor(private apiService: ApiService, private toastr: ToastrService) {}
+  constructor(private apiService: ApiService,
+              private toastr: ToastrService,
+              private fileService : FileService) {}
 
   ngOnInit() {
     this.apiService.getHello().subscribe(
@@ -34,6 +37,7 @@ export class HelloComponent implements OnInit {
       if (status === 200 || status === 500) {
         const jsonResponse = JSON.parse(response);
         this.toastr.success('Súbor sa nahral úspešne', 'Potvrdenie');
+        this.fileService.notifyFilesUpdated();
       }
     };
   }

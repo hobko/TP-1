@@ -15,6 +15,9 @@ export class MapOptionComponent {
 
   ngOnInit(): void {
     this.loadFiles();
+    this.fileService.filesUpdated$.subscribe(() => {
+      this.loadFiles();
+    });
   }
 
   loadFiles(): void {

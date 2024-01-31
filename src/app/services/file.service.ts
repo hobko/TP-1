@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable, map, Subject } from 'rxjs';
 import { environment } from '../../environments/environment';
 import * as toGeoJSON from 'togeojson';
 
@@ -12,8 +12,14 @@ export class FileService {
   private apiUrlgetFiles = `${this.apiUrl}getfiles`;
   constructor(private http: HttpClient) {}
 
+  private filesUpdatedSubject = new Subject<void>();
+  filesUpdated$ = this.filesUpdatedSubject.asObservable();
+
   getFiles(): Observable<{ files: string[] }> {
     return this.http.get<{ files: string[] }>(this.apiUrlgetFiles);
+  }
+  notifyFilesUpdated(): void {
+    this.filesUpdatedSubject.next();
   }
 
   getGpxFile(fileName: string): Observable<any> {
