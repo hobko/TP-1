@@ -4,7 +4,7 @@
   <button (click)="uploadFile()">Nahrajte súbor</button>
 
   <!-- Display selected file information -->
-  <div *ngIf="selectedFile">
+  <div class="fuckYou" *ngIf="selectedFile">
     <p>Selected File: {{ selectedFile.name }}</p>
     <p>File Size: {{ selectedFile.size | number: '1.2-2' }} bytes</p>
     <button class="deleteButton" (click)="deleteSelectedFile()">Delete</button>
