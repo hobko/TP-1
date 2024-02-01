@@ -20,12 +20,13 @@ main {
 .right-column {
   flex: 2; /* Take up twice the space of the left column on smaller screens */
   box-sizing: border-box;
+  margin: 0;
 }
 
 /* Media query for larger screens */
 @media (min-width: 768px) {
   .right-column {
     flex: 2; /* Take up twice the space of the left column on larger screens */
-    margin-left: 10px; /* Adjust the margin to set the gap */
+    /*margin-left: 10px;  Adjust the margin to set the gap */
   }
 }

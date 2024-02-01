@@ -1,49 +1,52 @@
 /* map-options.component.css */
-.options {
-    padding: 20px;
-    margin-left: 20%;
-    box-sizing: border-box;
-  }
-  
-  h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .file-icon {
-    width: 24px;
-    height: 24px;
-  }
+.options-container {
+  height: 300px; /* Set the desired height for the scrollable container */
+  overflow-y: auto; /* Enable vertical scrolling */
+  margin-left: 20%;
+}
 
-  .file-item {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .file-item:hover {
-    background-color: #e0e0e0;
-  }
-  
-  .file-icon {
-    font-size: 1.5em;
-    margin-right: 10px;
-  }
-  
-  .file-name {
-    flex-grow: 1;
-    font-weight: bold;
-  }
-  
-  
+.options {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.file-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.file-item:hover {
+  background-color: #e0e0e0;
+}
+
+.file-icon {
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+.file-name {
+  flex-grow: 1;
+  font-weight: bold;
+}
