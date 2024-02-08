@@ -40,7 +40,6 @@ export class MapOptionComponent {
   onDownloadClick(event: MouseEvent, file: string): void {
     event.stopPropagation(); // Prevent the click event from bubbling up to the parent li element
     this.fileService.downloadGpxZipFile(file);
-
   }
 
 }
