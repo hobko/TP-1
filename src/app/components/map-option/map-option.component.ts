@@ -31,5 +31,14 @@ export class MapOptionComponent {
     const name = option.split(' - ')[0]; // Extracting the name from the option
     this.optionClicked.emit({ option, name });
   }
+  onDeleteClick(event: MouseEvent, file: string): void {
+    event.stopPropagation(); // Prevent the click event from bubbling up to the parent li element
+    console.log('Delete clicked for:', file);
+  }
+
+  onDownloadClick(event: MouseEvent, file: string): void {
+    event.stopPropagation(); // Prevent the click event from bubbling up to the parent li element
+    console.log('Download clicked for:', file);
+  }
 
 }
