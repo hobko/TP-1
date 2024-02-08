@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FileService } from '../../services/file.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 
 @Component({
@@ -11,7 +12,8 @@ export class MapOptionComponent {
   @Output() optionClicked = new EventEmitter<{ option: string, name: string }>();
   files: string[] = [];
 
-  constructor(private fileService: FileService) {}
+  constructor(private fileService: FileService,
+              private notificationService: NotificationService,) {}
 
   ngOnInit(): void {
     this.loadFiles();
@@ -33,12 +35,12 @@ export class MapOptionComponent {
   }
   onDeleteClick(event: MouseEvent, file: string): void {
     event.stopPropagation(); // Prevent the click event from bubbling up to the parent li element
-    console.log('Delete clicked for:', file);
+    this.notificationService.showInfo('Súbor ' + file + ' bol úspešne odstránený', 'Informácia');
   }
 
   onDownloadClick(event: MouseEvent, file: string): void {
     event.stopPropagation(); // Prevent the click event from bubbling up to the parent li element
-    console.log('Download clicked for:', file);
+    this.fileService.downloadGpxZipFile(file);
   }
 
 }
