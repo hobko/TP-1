@@ -42,4 +42,5 @@ export class MapOptionComponent {
     this.fileService.downloadGpxZipFile(file);
   }
 
+  
 }
