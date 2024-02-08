@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FileUploader } from 'ng2-file-upload';
 import { environment } from '../../../environments/environment';
+import { endpoints } from 'src/environments/endpoints';
+import { FileService } from 'src/app/services/file.service';
 
 @Component({
   selector: 'app-header',
@@ -9,22 +11,20 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit{
-  private apiUrl = environment.apiUrl
   message: string = '';
   isSystemUp: boolean = false;
   isMapmatchingUp: boolean = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+              private fileService: FileService) {}
 
   ngOnInit() {
-    this.http.get<any>(`${this.apiUrl}hello`).subscribe((data) => {
-      this.message = data.message;
-      this.isSystemUp = this.message === "System is up";
+    this.fileService.checkSystemStatus().subscribe(systemStatus => {
+      this.isSystemUp = systemStatus;
     });
 
-    this.http.get<any>(`${this.apiUrl}check/graphhopper`).subscribe((data) => {
-      this.message = data.message;
-      this.isMapmatchingUp = this.message === "OK";
+    this.fileService.checkMapMatchingStatus().subscribe(mapMatchingStatus => {
+      this.isMapmatchingUp = mapMatchingStatus;
     });
   }
 }
