@@ -1,4 +1,3 @@
-<!-- map-options.component.html -->
 <div class="options-container">
   <div class="options">
     <h3>Zoznam nahranych tras</h3>
@@ -8,6 +7,8 @@
           <!-- Use img tag to display the icon -->
           <img src="../../../assets/Icons/gpx.png" alt="GPX Icon" class="file-icon"/>
           <span class="file-name">{{ file }}</span>
+          <img src="../../../assets/Icons/delete.png" alt="Delete Icon" class="file-icon" (click)="onDeleteClick($event, file)"/>
+          <img src="../../../assets/Icons/download.png" alt="Download Icon" class="file-icon" (click)="onDownloadClick($event, file)"/>
         </div>
       </li>
     </ul>
