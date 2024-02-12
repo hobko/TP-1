@@ -22,7 +22,7 @@ export class FileService {
   getFiles(): Observable<{ files: string[] }> {
     return this.http.get<{ files: string[] }>(endpoints.apiGetFiles);
   }
-  // Sprostredkuje autoupdate po uploade
+  // Sprostredkuje autoupdate po uploade vztahuje sa len na pridavanie
   notifyFilesUpdated(): void {
     this.filesUpdatedSubject.next();
   }
@@ -92,6 +92,20 @@ export class FileService {
    checkMapMatchingStatus(): Observable<boolean> {
     return this.http.get<any>(`${endpoints.apiGetMapMatchingStatus}`).pipe(
       map(data => data.message === "OK")
+    );
+  }
+
+  // Serviska ktora maze vsetky fily z dockera
+  deleteDataFromStorage(fileName: string): void {
+    this.http.delete(`${endpoints.apiDeleteFile}/${fileName}`).subscribe(
+      (response) => {
+        console.log(response);
+        this.notificationServie.showInfo("Súbor bol úspešne vymazaný","Vymazanie súboru")
+      },
+      (error) => {
+        console.error(error);
+        this.notificationServie.showError("Súbor sa nepodarilo odstrániť","Vymazanie súboru")
+      }
     );
   }
 }

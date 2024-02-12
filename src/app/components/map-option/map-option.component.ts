@@ -35,7 +35,8 @@ export class MapOptionComponent {
   }
   onDeleteClick(event: MouseEvent, file: string): void {
     event.stopPropagation(); // Prevent the click event from bubbling up to the parent li element
-    this.notificationService.showInfo('Súbor ' + file + ' bol úspešne odstránený', 'Informácia');
+    this.fileService.deleteDataFromStorage(file);
+    this.loadFiles();
   }
 
   onDownloadClick(event: MouseEvent, file: string): void {
