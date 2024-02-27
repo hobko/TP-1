@@ -15,7 +15,7 @@
       </div>
       <div class="green-ball-isMapmatchingUp" *ngIf="isMapmatchingUp"></div>
       <div class="red-ball-isMapmatchingUp" *ngIf="!isMapmatchingUp"></div>
-      <div class="autoconvertor"><button class="button">Autouploader</button></div>
+      <div class="autoconvertor"><button class="button" (click)="autoConvert()">Autouploader</button></div>
       <div class="green-ball-isSystemUp" *ngIf="isSystemUp"></div>
       <div class="red-ball-isSystemUp" *ngIf="!isSystemUp"></div>
     </div>

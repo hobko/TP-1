@@ -8,5 +8,6 @@ export const endpoints = {
     apiGetFiles:                environment.apiUrl + 'getfiles',
     apiGetMapMatchingStatus:    environment.apiUrl + 'graphhopper/status',
     apiDownloadZipFile:         environment.apiUrl + 'download', // tu sa este dava /nazov_suboru
-    apiDeleteFile:              environment.apiUrl + 'delete/storage' // tu sa este dava /nazov_suboru
+    apiDeleteFile:              environment.apiUrl + 'delete/storage', // tu sa este dava /nazov_suboru
+    apiAutoConvert:            environment.apiUrl + 'autoconvert' 
 }

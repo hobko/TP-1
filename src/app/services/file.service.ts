@@ -108,4 +108,11 @@ export class FileService {
       }
     );
   }
+
+  autoConverterFromUploads(): Observable<any> {
+    const autoConvertUrl = `${endpoints.apiAutoConvert}`;
+    return this.http.get(autoConvertUrl);
+  }
+
+
 }
