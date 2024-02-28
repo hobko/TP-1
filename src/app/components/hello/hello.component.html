@@ -1,12 +1,13 @@
 <div>
   <label for="fileInput">Vyberte si súbor</label>
   <input id="fileInput" type="file" ng2FileSelect [uploader]="uploader" (change)="onFileSelected($event)" />
-  <button (click)="uploadFile()">Nahrajte súbor</button>
+  
 
   <!-- Display selected file information -->
-  <div class="fuckYou" *ngIf="selectedFile">
-    <p>Selected File: {{ selectedFile.name }}</p>
-    <p>File Size: {{ selectedFile.size | number: '1.2-2' }} bytes</p>
-    <button class="deleteButton" (click)="deleteSelectedFile()">Delete</button>
+  <div class="selectedfile" *ngIf="selectedFile">
+    <p>Vybraný súbor: {{ selectedFile.name }}</p>
+    <p>Veľkosť súboru: {{ (selectedFile.size / 1024) | number: '1.2-2' }} KB</p>
+    <button class="deleteButton" (click)="deleteSelectedFile()">Zrušiť výber</button>
+    <button (click)="uploadFile()">Potvrdiť výber</button>
   </div>
 </div>
