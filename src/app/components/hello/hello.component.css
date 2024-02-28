@@ -45,7 +45,35 @@ label:hover, button:hover {
   background-color: #45a049;
 }
 
-/* Style the delete button */
+.selectedfile {
+  margin: auto;
+  margin-top: 15px;
+}
+
+.vehicle-buttons {
+  margin-top: 10px;
+}
+
+.vehicle-button {
+  background-color: #333;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.vehicle-button.selected {
+  background-color: #1c5536;
+}
+
+.vehicle-button:hover {
+  background-color: #555;
+}
+
 .deleteButton {
   background-color: #e74c3c;
   color: white;
@@ -58,7 +86,6 @@ label:hover, button:hover {
   transition: background-color 0.3s ease;
 }
 
-/* Style the delete button on hover */
 .deleteButton:hover {
   background-color: #c0392b;
 }

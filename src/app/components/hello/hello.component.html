@@ -2,11 +2,18 @@
   <label for="fileInput">Vyberte si súbor</label>
   <input id="fileInput" type="file" ng2FileSelect [uploader]="uploader" (change)="onFileSelected($event)" />
   
-
   <!-- Display selected file information -->
   <div class="selectedfile" *ngIf="selectedFile">
     <p>Vybraný súbor: {{ selectedFile.name }}</p>
     <p>Veľkosť súboru: {{ (selectedFile.size / 1024) | number: '1.2-2' }} KB</p>
+    
+    <!-- Vehicle type buttons -->
+
+      <button class="vehicle-button" [class.selected]="selectedVehicle === 'car'" (click)="selectVehicle('car')">Auto</button>
+      <button class="vehicle-button" [class.selected]="selectedVehicle === 'foot'" (click)="selectVehicle('foot')">Chôdza</button>
+      <button class="vehicle-button" [class.selected]="selectedVehicle === 'mhd'" (click)="selectVehicle('mhd')">MHD</button>
+   
+
     <button class="deleteButton" (click)="deleteSelectedFile()">Zrušiť výber</button>
     <button (click)="uploadFile()">Potvrdiť výber</button>
   </div>
