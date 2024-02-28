@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ApiService } from '../../services/api.service';
 import { environment } from '../../../environments/environment';
 import { FileService } from 'src/app/services/file.service';
-
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-hello',
@@ -19,7 +19,8 @@ export class HelloComponent implements OnInit {
 
   constructor(private apiService: ApiService,
               private toastr: ToastrService,
-              private fileService : FileService) {}
+              private fileService : FileService,
+              private notificationService : NotificationService) {}
 
   ngOnInit() {
     this.apiService.getHello().subscribe(
@@ -32,11 +33,10 @@ export class HelloComponent implements OnInit {
       file.withCredentials = false;
     };
 
-    // Handle completion of each file upload
     this.uploader.onCompleteItem = (item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) => {
       if (status === 200 || status === 500) {
         const jsonResponse = JSON.parse(response);
-        this.toastr.success('Súbor sa nahral úspešne', 'Potvrdenie');
+        this.notificationService.showSuccess('Súbor sa nahral úspešne', 'Potvrdenie');
         this.fileService.notifyFilesUpdated();
         this.deleteSelectedFile();
       }
@@ -54,6 +54,7 @@ export class HelloComponent implements OnInit {
   // Upload the selected file
   uploadFile() {
     this.uploader.uploadAll();
+    this.notificationService.showInfo('Súbor sa začal náhravať, po nahratí bude zobrazená notifikácia', 'Informácia');
   }
 
   // Delete the selected file
