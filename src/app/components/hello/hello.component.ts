@@ -14,6 +14,8 @@ import { NotificationService } from 'src/app/services/notification.service';
 export class HelloComponent implements OnInit {
   message: string = '';
   selectedFile: File | null = null; // trakuje vybrany element
+  selectedVehicle: string = 'car'; // default moznost je auto
+
   private apiUrl = environment.apiUrl;
   uploader: FileUploader = new FileUploader({ url: `${this.apiUrl}upload` });
 
@@ -55,6 +57,10 @@ export class HelloComponent implements OnInit {
   uploadFile() {
     this.uploader.uploadAll();
     this.notificationService.showInfo('Súbor sa začal náhravať, po nahratí bude zobrazená notifikácia', 'Informácia');
+  }
+  
+  selectVehicle(vehicle: string) {
+    this.selectedVehicle = vehicle; // Update the selected vehicle type
   }
 
   // Delete the selected file
