@@ -11,7 +11,7 @@ import { HelloComponent } from './components/hello/hello.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { MapComponent } from './components/map/map.component';
 import { MapOptionComponent } from './components/map-option/map-option.component';
-
+import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -34,7 +34,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     FileUploadModule,
     ToastrModule.forRoot(),
+    FormsModule,
     BrowserAnimationsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

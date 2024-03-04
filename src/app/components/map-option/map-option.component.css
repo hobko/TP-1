@@ -1,6 +1,6 @@
 /* map-options.component.css */
 .options-container {
-  height: 50%; /* Set the desired height for the scrollable container */
+  height: 30%; /* Set the desired height for the scrollable container */
   overflow-y: auto; /* Enable vertical scrolling */
   margin-left: 20%;
   width: 100%;

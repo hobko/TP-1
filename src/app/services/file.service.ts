@@ -22,6 +22,19 @@ export class FileService {
   getFiles(): Observable<{ files: string[] }> {
     return this.http.get<{ files: string[] }>(endpoints.apiGetFiles);
   }
+
+  deleteFilesFromUploads(selectedFiles: string[]): Observable<any> {
+    return this.http.delete<any>(`${endpoints.apiDeleteUploads}`, { body: selectedFiles });
+  }
+
+  convertFilesFromUploads(selectedFiles: string[]): Observable<any> {
+    this.notificationServie.showInfo("Súbory sa začali spracovávať", "INFO");
+    return this.http.post<any>(`${endpoints.apiConvertUploads}`, selectedFiles);
+  }
+  getUploadsFiles(): Observable<{ files: string[] }> {
+    return this.http.get<{ files: string[] }>(endpoints.apiGetUploadsFiles);
+  }
+
   // Sprostredkuje autoupdate po uploade vztahuje sa len na pridavanie
   notifyFilesUpdated(): void {
     this.filesUpdatedSubject.next();
