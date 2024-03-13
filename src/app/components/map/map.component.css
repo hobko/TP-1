@@ -5,6 +5,8 @@
   position: relative; /* Set the container to relative positioning */
   height: 100%;
   width: 100%;
+  padding: 1%;
+
   /*menil som */
   /*margin-left: 10%;*/
   /*margin-right: 10%;*/
