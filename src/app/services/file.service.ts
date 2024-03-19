@@ -13,10 +13,16 @@ import { NotificationService } from './notification.service';
 export class FileService {
   private apiUrl = environment.apiUrl
   constructor(private http: HttpClient,
-              private notificationServie: NotificationService) {}
+              private notificationService: NotificationService) {}
 
   private filesUpdatedSubject = new Subject<void>();
   filesUpdated$ = this.filesUpdatedSubject.asObservable();
+
+
+  uploadFile(formData: FormData): Observable<any> {
+    this.notificationService.showInfo('Súbor sa začal náhravať, po nahratí bude zobrazená notifikácia', 'Informácia');
+    return this.http.post<any>(endpoints.apiUpload, formData);
+  }
 
   // Servica ktora nam zastresuje vytiahnutie Filov na FE
   getFiles(): Observable<{ files: string[] }> {
@@ -28,7 +34,7 @@ export class FileService {
   }
 
   convertFilesFromUploads(selectedFiles: string[]): Observable<any> {
-    this.notificationServie.showInfo("Súbory sa začali spracovávať", "INFO");
+    this.notificationService.showInfo("Súbory sa začali spracovávať", "INFO");
     return this.http.post<any>(`${endpoints.apiConvertUploads}`, selectedFiles);
   }
   getUploadsFiles(): Observable<{ files: string[] }> {
@@ -53,7 +59,7 @@ export class FileService {
 
   downloadGpxZipFile(fileName: string): void {
     // Show an "info" message before the download starts
-    this.notificationServie.showInfo('Sťahovanie súboru ' + fileName + ' začalo', 'Info');
+    this.notificationService.showInfo('Sťahovanie súboru ' + fileName + ' začalo', 'Info');
 
     const zipUrl = `${endpoints.apiDownloadZipFile}/${fileName}`; // Update the endpoint
     this.http.get(zipUrl, { responseType: 'blob' }).subscribe(
@@ -73,11 +79,11 @@ export class FileService {
         document.body.removeChild(link);
 
         // Show a "success" message after the download is completed
-        this.notificationServie.showSuccess('Súbor ' + fileName + ' bol úspešne stiahnutý', 'Úspech');
+        this.notificationService.showSuccess('Súbor ' + fileName + ' bol úspešne stiahnutý', 'Úspech');
       },
       error => {
         console.error('Error downloading file:', error);
-        this.notificationServie.showError('Nastala chyba pri sťahovaní súboru', 'Chyba');
+        this.notificationService.showError('Nastala chyba pri sťahovaní súboru', 'Chyba');
       }
     );
 }
@@ -113,11 +119,11 @@ export class FileService {
     this.http.delete(`${endpoints.apiDeleteFile}/${fileName}`).subscribe(
       (response) => {
         console.log(response);
-        this.notificationServie.showInfo("Súbor bol úspešne vymazaný","Vymazanie súboru")
+        this.notificationService.showInfo("Súbor bol úspešne vymazaný","Vymazanie súboru")
       },
       (error) => {
         console.error(error);
-        this.notificationServie.showError("Súbor sa nepodarilo odstrániť","Vymazanie súboru")
+        this.notificationService.showError("Súbor sa nepodarilo odstrániť","Vymazanie súboru")
       }
     );
   }

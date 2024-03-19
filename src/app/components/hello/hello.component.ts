@@ -35,17 +35,8 @@ export class HelloComponent implements OnInit {
       file.withCredentials = false;
     };
 
-    this.uploader.onCompleteItem = (item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) => {
-      if (status === 200 || status === 500) {
-        const jsonResponse = JSON.parse(response);
-        this.notificationService.showSuccess('Súbor sa nahral úspešne', 'Potvrdenie');
-        this.fileService.notifyFilesUpdated();
-        this.deleteSelectedFile();
-      }
-    };
   }
 
-  // Handle file selection
   onFileSelected(event: any) {
     const fileInput = event.target;
     if (fileInput.files && fileInput.files.length > 0) {
@@ -53,17 +44,35 @@ export class HelloComponent implements OnInit {
     }
   }
 
-  // Upload the selected file
   uploadFile() {
-    this.uploader.uploadAll();
-    this.notificationService.showInfo('Súbor sa začal náhravať, po nahratí bude zobrazená notifikácia', 'Informácia');
+    if (!this.selectedFile) {
+      console.error('No file selected');
+      return;
+    }
+    // Create FormData object to append file and vehicle type
+    const formData = new FormData();
+    formData.append('file', this.selectedFile as Blob); // Append selected file
+    formData.append('vehicle_type', this.selectedVehicle); // Append selected vehicle type
+  
+    // Make API call to upload file with vehicle type
+    this.fileService.uploadFile(formData).subscribe(
+      (response) => {
+        console.log(response);
+        this.notificationService.showSuccess('Súbor sa nahral úspešne', 'Potvrdenie');
+        this.fileService.notifyFilesUpdated();
+        this.deleteSelectedFile();
+      },
+      (error) => {
+        console.error(error);
+        this.notificationService.showError('Chyba pri nahrávaní súboru', 'Chyba');
+      }
+    );
   }
   
   selectVehicle(vehicle: string) {
-    this.selectedVehicle = vehicle; // Update the selected vehicle type
+    this.selectedVehicle = vehicle;
   }
 
-  // Delete the selected file
   deleteSelectedFile() {
     this.selectedFile = null;
     const fileInput = document.getElementById('fileInput') as HTMLInputElement;
