@@ -2,7 +2,7 @@
 .options-container {
   height: 30%; /* Set the desired height for the scrollable container */
   overflow-y: auto; /* Enable vertical scrolling */
-  margin-left: 20%;
+  margin-left: 3%;
   width: 100%;
 }
 

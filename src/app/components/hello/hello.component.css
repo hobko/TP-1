@@ -1,20 +1,24 @@
 /* Apply styling to the container */
 div {
   display: flexbox;
-  max-width: 400px;
   /*treba upravit right a left% aby sa posunul button lebo je dojebany cely layout, dovodom je: .right-column */
   margin: 5%;    /* top | right | bottom | left */
-  margin-left: -20%;
+  /* margin-left: -20%; */
   text-align: center;
   background-color: #f5f5f5;
   padding: 5%;
   border-radius: 3%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  
+  
 }
 
 div .selectedfile{
- margin: auto;
+ 
  margin-top: 10px;
+
+ /* margin-bottom: 100px; */
 }
 
 /* Style the heading */
@@ -34,7 +38,7 @@ label, button {
   padding: 10px 10px;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 3%;
   font-size: 1,5vw;
   margin-right: 1%;
   transition: background-color 0.3s ease;

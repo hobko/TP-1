@@ -5,17 +5,17 @@
   position: relative; /* Set the container to relative positioning */
   height: 100%;
   width: 100%;
+  margin: 0 auto;
+  
   padding: 1%;
+  
+  
 
   /*menil som */
   /*margin-left: 10%;*/
   /*margin-right: 10%;*/
 }
 
-.app-hello {
-  width: 20%; /* Adjust the width as needed */
-  box-sizing: border-box;
-}
 
 /*menim*/
 .map-wrap {
@@ -24,7 +24,9 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  height: calc(100% - 120px); /* Dynamicky vypočítava výšku, napríklad o 20px menej */
+  min-width: 400px;
+  /* height: calc(100% - 110px); Dynamicky vypočítava výšku, napríklad o 20px menej */
+  /* min-width: 300px; */
 }
 
 .map {
@@ -32,29 +34,10 @@
   flex: 1; /* Zaberá zvyšný priestor vo vnútri map-wrap */
 }
 
-
-.options {
-  width: 40%; /* Adjust as needed */
-  box-sizing: border-box;
-  margin-left: 10px; /* Adjust the margin to set the gap between map and options */
-}
-
-.options ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.options li {
-  margin-bottom: 10px;
-  cursor: pointer;
-  /* Add styling as needed */
-}
-
 .legend {
   position: absolute;
-  top: 9px; /* adjust as needed */
-  right: 40px; /* adjust as needed */
+  top: 1%; /* adjust as needed */
+  right: 50px; /* adjust as needed */
   background-color: white;
   padding: 5px;
   border: 2px solid #ccc;
@@ -65,6 +48,7 @@
 
 .legend-item {
   margin-bottom: 3px;
+  max-width: 150px;
   display: flex;
   align-items: center;
 }
