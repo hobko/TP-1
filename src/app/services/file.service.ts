@@ -64,11 +64,11 @@ export class FileService {
     const zipUrl = `${endpoints.apiDownloadZipFile}/${fileName}`; // Update the endpoint
     this.http.get(zipUrl, { responseType: 'blob' }).subscribe(
       response => {
-        const blob = new Blob([response], { type: 'application/zip' }); // Change the MIME type
+        const blob = new Blob([response], { type: 'application/zip' }); // Ensure correct MIME type
         const url = window.URL.createObjectURL(blob);
 
         // Modify the filename for the downloaded zip file
-        const downloadFileName = fileName.replace('.gpx', '.zip');
+        const downloadFileName = fileName.replace(/\.[^.]+$/, '') + '.zip'; // Replace any extension with .zip
 
         const link = document.createElement('a');
         link.href = url;
