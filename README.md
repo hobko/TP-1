@@ -11,7 +11,7 @@ Spusti `ng generate component components/component-name` na vygenerovanie noveho
 sa nachádzajú na tejto linke [lešenie](https://angular.io/guide/file-structure)
 ## Build
 
-Spusti `ng build` na buildenie. Build artifacts su uložené v `dist/` .
+Spusti `ng build` na buildenie. .Build artifacts su uložené v `dist/` .
 
 ## Running unit tests
 
