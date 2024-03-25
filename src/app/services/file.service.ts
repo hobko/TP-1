@@ -5,7 +5,10 @@ import { environment } from '../../environments/environment';
 import { endpoints } from 'src/environments/endpoints';
 import * as toGeoJSON from 'togeojson';
 import { NotificationService } from './notification.service';
-
+import { ErrorMessages } from '../messages/error-messages';
+import { SuccessMessages } from '../messages/success-messages';
+import { InfoMessages } from '../messages/info-messages';
+import { WarningMessages } from '../messages/warning-messages';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +23,7 @@ export class FileService {
 
 
   uploadFile(formData: FormData): Observable<any> {
-    this.notificationService.showInfo('Súbor sa začal náhravať, po nahratí bude zobrazená notifikácia', 'Informácia');
+    this.notificationService.showInfoByKey('fileUploadStartedNotification');
     return this.http.post<any>(endpoints.apiUpload, formData);
   }
 
@@ -34,7 +37,7 @@ export class FileService {
   }
 
   convertFilesFromUploads(selectedFiles: string[]): Observable<any> {
-    this.notificationService.showInfo("Súbory sa začali spracovávať", "INFO");
+    this.notificationService.showInfoByKey('filesConversionStartedNotification');
     return this.http.post<any>(`${endpoints.apiConvertUploads}`, selectedFiles);
   }
   getUploadsFiles(): Observable<{ files: string[] }> {
@@ -59,7 +62,7 @@ export class FileService {
 
   downloadGpxZipFile(fileName: string): void {
     // Show an "info" message before the download starts
-    this.notificationService.showInfo('Sťahovanie súboru ' + fileName + ' začalo', 'Info');
+    this.notificationService.showInfoByKey('fileDownloadStartedNotification');
 
     const zipUrl = `${endpoints.apiDownloadZipFile}/${fileName}`; // Update the endpoint
     this.http.get(zipUrl, { responseType: 'blob' }).subscribe(
@@ -79,11 +82,11 @@ export class FileService {
         document.body.removeChild(link);
 
         // Show a "success" message after the download is completed
-        this.notificationService.showSuccess('Súbor ' + fileName + ' bol úspešne stiahnutý', 'Úspech');
+        this.notificationService.showSuccessByKey('fileDownloadedSuccess');
       },
       error => {
         console.error('Error downloading file:', error);
-        this.notificationService.showError('Nastala chyba pri sťahovaní súboru', 'Chyba');
+        this.notificationService.showErrorByKey('errorWhileDownloadingFile');
       }
     );
 }
@@ -119,11 +122,11 @@ export class FileService {
     this.http.delete(`${endpoints.apiDeleteFile}/${fileName}`).subscribe(
       (response) => {
         console.log(response);
-        this.notificationService.showInfo("Súbor bol úspešne vymazaný","Vymazanie súboru")
+        this.notificationService.showSuccessByKey('fileDeletedSuccess')
       },
       (error) => {
         console.error(error);
-        this.notificationService.showError("Súbor sa nepodarilo odstrániť","Vymazanie súboru")
+        this.notificationService.showErrorByKey('errorWhileErasingFile')
       }
     );
   }

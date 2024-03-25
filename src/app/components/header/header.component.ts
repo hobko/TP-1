@@ -30,14 +30,14 @@ export class HeaderComponent implements OnInit{
     });
   }
   autoConvert(): void {
-    this.notificationService.showInfo('Súbory sa začali spracovávať čakajte na info o spracovaní','Informácia')
+    this.notificationService.showInfoByKey('filesConversionStartedNotification')
     this.fileService.autoConverterFromUploads().subscribe(
       () => {
-        this.notificationService.showSuccess('Konverzia úspešná všetkých súborov','Hotovo');
+        this.notificationService.showSuccessByKey('allFilesConvertedSuccessfully');
         this.fileService.notifyFilesUpdated();
       },
       error => {
-        this.notificationService.showError('Nastala chyba','Chyba');
+        this.notificationService.showErrorByKey('errorConvertingFiles');
       }
     );
   }

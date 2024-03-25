@@ -7,13 +7,21 @@ export const SuccessMessages = {
     message: "Nastavenia boli úspešne aktualizované.",
     title: "Nastavenia Aktualizované"
   },
-  fileLoaded: {
-    message: "Súbor bol úspešne vložený.",
-    title: "Súbor vložený"
+  fileLoadedSuccess: {
+    message: "Súbor bol úspešne nahratý.",
+    title: "Súbor nahratý"
   },
-  fileDeleted: {
+  fileDeletedSuccess: {
     message: "Súbor bol úspešne vymazaný.",
     title: "Súbor vymazaný"
+  },
+  fileDownloadedSuccess: {
+    message: "Súbor bol úspešne stiahnutý.",
+    title: "Súbor stiahnutý"
+  },
+  allFilesConvertedSuccessfully: {
+    message: "Úspešná konverzia všetkých súborov.",
+    title: "Konverzia úspešná"
   }
   // Ďalšie definície úspešných hlásení...
 };
