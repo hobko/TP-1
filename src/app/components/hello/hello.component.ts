@@ -53,22 +53,22 @@ export class HelloComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', this.selectedFile as Blob); // Append selected file
     formData.append('vehicle_type', this.selectedVehicle); // Append selected vehicle type
-  
+
     // Make API call to upload file with vehicle type
     this.fileService.uploadFile(formData).subscribe(
       (response) => {
         console.log(response);
-        this.notificationService.showSuccess('Súbor sa nahral úspešne', 'Potvrdenie');
+        this.notificationService.showSuccessByKey('fileLoadedSuccess');
         this.fileService.notifyFilesUpdated();
         this.deleteSelectedFile();
       },
       (error) => {
         console.error(error);
-        this.notificationService.showError('Chyba pri nahrávaní súboru', 'Chyba');
+        this.notificationService.showErrorByKey('errorLoadingFiles');
       }
     );
   }
-  
+
   selectVehicle(vehicle: string) {
     this.selectedVehicle = vehicle;
   }

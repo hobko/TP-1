@@ -31,7 +31,7 @@ export class MapOptionComponent {
       if (response && response.files) {
         this.upload_files = response.files.map(file => ({ name: file, selected: false }));
       } else {
-        this.upload_files = []; 
+        this.upload_files = [];
       }
     });
   }
@@ -70,7 +70,7 @@ export class MapOptionComponent {
         console.log(response);
       },
       error => {
-        console.error('Error:', error); 
+        console.error('Error:', error);
       }
     );
   }
@@ -79,12 +79,12 @@ export class MapOptionComponent {
     const selectedFiles = this.upload_files.filter(file => file.selected).map(file => file.name);
     this.fileService.convertFilesFromUploads(selectedFiles).subscribe(
       response => {
-        this.notificationService.showSuccess("Súbory sa nahrali úspešne","Hotovo");
+        this.notificationService.showSuccessByKey('fileLoadedSuccess');
         this.fileService.notifyFilesUpdated();
         this.loadUploadFiles();
       },
       error => {
-        this.notificationService.showError("Nastala chyba","Chyba");
+        this.notificationService.showErrorByKey('errorConvertingFiles');
 
       }
     );

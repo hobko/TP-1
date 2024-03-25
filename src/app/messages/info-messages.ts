@@ -6,6 +6,18 @@ export const InfoMessages = {
   sessionExtended: {
     message: "Vaša relácia bola predĺžená o ďalších 30 minút.",
     title: "Relácia Predĺžená"
-  }
+  },
+  fileUploadStartedNotification: {
+    message: "Súbor sa začal náhravať, po nahratí bude zobrazená notifikácia.",
+    title: "Informácia"
+  },
+  filesConversionStartedNotification: {
+    message: "Súbory sa začali spracovávať.",
+    title: "Informácia"
+  },
+  fileDownloadStartedNotification: {
+    message: "Sťahovanie súboru zacalo.",
+    title: "Informácia"
+  },
   // Ďalšie definície informačných hlásení...
 };

@@ -25,7 +25,23 @@ export const ErrorMessages = {
   },
   wrongTypeOfPath: {
     message: "Zlý typ trasy.",
-    title: "Zlá trasa."
+    title: "Zlá trasa"
+  },
+  errorWhileDownloadingFile: {
+    message: "Nastala chyba pri sťahovaní súboru.",
+    title: "Chyba pri sťahovaní"
+  },
+  errorWhileErasingFile: {
+    message: "Súbor sa nepodarilo odstrániť.",
+    title: "Chyba pri odstránení"
+  },
+  errorConvertingFiles: {
+    message: "Súbor sa nepodarilo skonvertovať.",
+    title: "Chyba pri konvertovani"
+  },
+  errorLoadingFiles: {
+    message: "Súbor sa nepodarilo nahrať.",
+    title: "Chyba pri nahrávaní"
   },
 
   // Ďalšie definície chybových hlášok...
