@@ -1,0 +1,32 @@
+.app-footer {
+    background-color: #333;
+    color: white;
+    padding: 2px 0;
+    text-align: center;
+  }
+  
+  .app-footer a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .app-footer a:hover {
+    color: #007bff; /* farba odkazu po najazdení myšou */
+  }
+  
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .flex-container p {
+    margin: 8px; /* medzera medzi jednotlivými p */
+  }
+  
+  /* Styl pre font awesome ikonu */
+  .fa-github {
+    font-size: 30px;
+    margin-right: 2px; /* medzera medzi ikonou a textom */
+  }
+  

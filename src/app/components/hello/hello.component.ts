@@ -8,8 +8,8 @@ import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-hello',
-  templateUrl: './hello.component.html',
-  styleUrls: ['./hello.component.css']
+  templateUrl: './hello.html',
+  styleUrls: ['./hello.css']
 })
 export class HelloComponent implements OnInit {
   message: string = '';

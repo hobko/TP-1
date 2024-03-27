@@ -5,8 +5,8 @@ import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-map-option',
-  templateUrl: './map-option.component.html',
-  styleUrls: ['./map-option.component.css']
+  templateUrl: './map-option.html',
+  styleUrls: ['./map-option.css']
 })
 export class MapOptionComponent {
   @Output() optionClicked = new EventEmitter<{ option: string, name: string }>();

@@ -1,0 +1,36 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
+  }
+  
+  header,footer {
+    background-color: #333;
+    color: #fff;
+    padding: 8px;
+    text-align: center;
+    flex: 0 0 auto; /* Flexibilita pri zmene veľkosti okna */
+  }
+  
+  
+  main {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap; /* Allow columns to wrap to the next row on smaller screens */
+  }
+  
+  .right-column {
+    flex: 2; /* Take up twice the space of the left column on smaller screens */
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  /* Media query for larger screens */
+  @media (min-width: 768px) {
+    .right-column {
+      flex: 2; /* Take up twice the space of the left column on larger screens */
+      /*margin-left: 10px;  Adjust the margin to set the gap */
+    }
+  }
+  

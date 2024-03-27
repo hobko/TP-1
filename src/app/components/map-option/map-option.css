@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  justify-content: space-around; /* Rozmiestnenie kontajnerov okolo obsahu */
+  align-items: flex-start; /* Zarovnanie na začiatok stránky */
+  flex-wrap: wrap; /* Flexibilné balenie obsahu na viacero riadkov */
+}
+
+.options-container {
+  flex: 1; /* Rozmiestnenie kontajnerov do rovnakej šírky */
+  margin: 10px; /* Medzera medzi kontajnermi */
+}
+
+.options {
+  background-color: #f5f5f5; /* Farba pozadia kontajneru */
+  border-radius: 10px; /* Zaoblenie rohov */
+  padding: 20px; /* Odsadenie vnútri kontajneru */
+}
+
+h3 {
+  color: #333; /* Farba nadpisu */
+}
+
+.table-responsive {
+  overflow-x: auto; /* Povolenie horizontálneho posuvníka pre príliš široké tabuľky */
+}
+
+/* Prispôsobte ďalšie štýly podľa potreby */

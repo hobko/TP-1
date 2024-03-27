@@ -1,0 +1,51 @@
+<div class="options-container">
+    <div class="options">
+      <h3>Zoznam nahratých trás</h3>
+      <ul>
+        <li *ngFor="let file of files" (click)="onOptionClick(file)">
+          <div class="file-item">
+            <!-- Use img tag to display the icon -->
+            <img src="../../../assets/Icons/gpx.png" alt="GPX Icon" class="file-icon"/>
+            <span class="file-name">{{ file }}</span>
+            <img src="../../../assets/Icons/delete.png" alt="Delete Icon" class="file-icon" (click)="onDeleteClick($event, file)"/>
+            <img src="../../../assets/Icons/download.png" alt="Download Icon" class="file-icon" (click)="onDownloadClick($event, file)"/>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="options-container">
+    <div class="options">
+      <h3>Zoznam upload</h3>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>
+                <input type="checkbox" [(ngModel)]="selectAllCheckbox" (change)="toggleSelectAll()">
+              </th>
+              <th>Názov súboru</th>
+              <th>
+                <button class="btn btn-primary" (click)="convertSelectedFiles()">Spracovať</button>
+              </th>
+              <th>
+                <button class="btn btn-danger" (click)="deleteSelectedFiles()">Zmazať</button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let upload_file of upload_files; let i = index">
+              <td>
+                <input type="checkbox" [(ngModel)]="upload_file.selected">
+              </td>
+              <td colspan="3">{{ upload_file.name }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  
+  

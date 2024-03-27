@@ -1,0 +1,57 @@
+/* Styl pre guľôčky */
+.green-ball-isMapmatchingUp,
+.red-ball-isMapmatchingUp,
+.green-ball-isSystemUp,
+.red-ball-isSystemUp {
+  width: 12px; /* Šírka guľôčky */
+  height: 12px; /* Výška guľôčky */
+  border-radius: 50%; /* Okrúhlosť guľôčky */
+  margin-left: 15px; /* Zmena medzery medzi guľôčkami */
+}
+
+.autoconvertor {
+  margin-left: auto; /* Posunutie tlačidla na pravú stranu */
+}
+
+.app-header {
+  background-color: #333; /* Farba pozadia */
+  color: white; /* Farba textu */
+  padding: 10px 50px; /* Vnútorné odsadenie */
+  display: flex; /* Použitie Flexboxu na zarovnanie obsahu */
+  align-items: center; /* Zarovnanie obsahu do stredu v rámci výšky */
+}
+
+.app-header h3 {
+  margin: 20px; /* Odstránenie odsadenia nadpisu */
+}
+
+.app-header a {
+  color: white; /* Farba odkazov */
+  text-decoration: none; /* Odstránenie podčiarknutia */
+  margin-right: 20px; /* Medzera medzi odkazmi */
+}
+
+.button {
+  background-color: #ffffff; /* Biela farba pozadia */
+  color: #000000; /* Čierna farba textu */
+  padding: 10px 20px; /* Veľkosť tlačidla */
+  border: none; /* Odstránenie ohraničenia */
+  border-radius: 5px; /* Zakrivenie rohov */
+  cursor: pointer; /* Zmena kurzoru na ruku pri najazdení */
+  font-size: 18px; /* Veľkosť písma */
+  transition: background-color 0.3s ease; /* Plynulá zmena farby pozadia pri najazdení */
+}
+
+.button:hover {
+  background-color: #969899; /* Farba pozadia pri najazdení myšou */
+}
+
+.green-ball-isMapmatchingUp,
+.green-ball-isSystemUp {
+  background-color: green; /* Farba zelenej guľôčky */
+}
+
+.red-ball-isMapmatchingUp,
+.red-ball-isSystemUp {
+  background-color: red; /* Farba červenej guľôčky */
+}
