@@ -1,15 +1,15 @@
-/* map-options.component.css */
 .options-container {
-  height: 30%; /* Set the desired height for the scrollable container */
-  overflow-y: auto; /* Enable vertical scrolling */
-  margin-left: 20%;
-  width: 100%;
+  height: 50%;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 100%; 
 }
 
 .options {
-  padding: 20px;
+  padding: 30px; /* Increase padding for more space */
   box-sizing: border-box;
 }
+
 
 h3 {
   font-size: 1.2em;
