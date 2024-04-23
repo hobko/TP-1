@@ -1,32 +1,26 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .app-footer {
-    background-color: #333;
-    color: white;
-    padding: 2px 0;
-    text-align: center;
-  }
-  
-  .app-footer a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .app-footer a:hover {
-    color: #007bff; /* farba odkazu po najazdení myšou */
-  }
-  
-  .flex-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .flex-container p {
-    margin: 8px; /* medzera medzi jednotlivými p */
-  }
-  
-  /* Styl pre font awesome ikonu */
-  .fa-github {
-    font-size: 30px;
-    margin-right: 2px; /* medzera medzi ikonou a textom */
-  }
-  
+  margin-top: auto; /* Posunie footer na spodok stránky */
+  background-color: #333; /* Čierna farba pozadia */
+  color: #fff; /* Biela farba textu */
+  padding: 5px;
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center; /* Zarovnanie obsahu na stred */
+}
+
+.app-footer a {
+  color: #fff; /* Biela farba odkazov */
+}
+
+.app-footer p {
+  margin: 5px 10px; /* Medzera medzi jednotlivými odstavcami */
+}

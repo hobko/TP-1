@@ -1,27 +1,101 @@
-.container {
-  display: flex;
-  justify-content: space-around; /* Rozmiestnenie kontajnerov okolo obsahu */
-  align-items: flex-start; /* Zarovnanie na začiatok stránky */
-  flex-wrap: wrap; /* Flexibilné balenie obsahu na viacero riadkov */
-}
-
 .options-container {
-  flex: 1; /* Rozmiestnenie kontajnerov do rovnakej šírky */
-  margin: 10px; /* Medzera medzi kontajnermi */
-}
+    
+    display: flex;
+  flex-direction: row; /* Rozloženie v rade */
+  margin: 20px; /* Medzera medzi jednotlivými kontajnermi */
+  flex: 1;
+  
+  }
+  
+  .options {
+    flex:1;
+    background-color: #f9f9f9; /* Farebné pozadie pre kontajner */
+    border: 1px solid #ddd; /* Hranica okolo kontajnera */
+    border-radius: 5px; /* Zaoblené rohy */
+    padding: 20px;
+    margin-right: 20px;
+  }
 
-.options {
-  background-color: #f5f5f5; /* Farba pozadia kontajneru */
-  border-radius: 10px; /* Zaoblenie rohov */
-  padding: 20px; /* Odsadenie vnútri kontajneru */
-}
+  .btn-primary {
+    background-color: #000; /* Čierna farba pozadia */
+    color: hsl(0, 0%, 100%); /* Biela farba textu */
+    padding: 7px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Animácia farebného prechodu */
+  }
+  
+  .btn-primary:hover {
+    background-color: #333; /* Farebný efekt pri najazdení myšou */
+  }
 
-h3 {
-  color: #333; /* Farba nadpisu */
-}
+  .btn-dange{
+    background-color: #e44545; /* Čierna farba pozadia */
+    color: hsl(0, 0%, 100%); /* Biela farba textu */
+    padding: 7px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Animácia farebného prechodu */
+  }
 
-.table-responsive {
-  overflow-x: auto; /* Povolenie horizontálneho posuvníka pre príliš široké tabuľky */
-}
+  .btn-dange:hover {
+    background-color: #d86c6c; /* Farebný efekt pri najazdení myšou */
+  }
+  
+  h3 {
+    color: #333; /* Farba nadpisu */
+  }
+  
+  .file-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .file-icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    transition: filter 0.3s ease;
+    cursor: pointer;
+  }
+  .file-icon:hover {
+    filter: drop-shadow(1px 2px 5px rgba(0.9, 0.9, 0.8, 0.9)); /* Zmena filtra na zobrazenie tieňa po najazdení myšou */
+  }
+  
+  .file-name {
+    flex: 1; /* Roztiahne sa na celú dostupnú šírku */
+  }
+  
+  .options table {
+    width: 100%;
+  }
+  
+  .options th {
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .options td {
+    text-align: center;
+  }
+  
+  /* Stylizácia tlačidiel */
+  .btn {
+    margin-right: 10px;
+  }
+  
 
-/* Prispôsobte ďalšie štýly podľa potreby */
+  /* Responzívne štýly */
+@media (max-width: 768px) {
+    .options-container {
+      flex-direction: column; /* Prechod na vertikálne usporiadanie na menších obrazovkách */
+    }
+  
+    .options {
+      margin-right: 0; /* Odstránenie medzery medzi kontajnermi na menších obrazovkách */
+      margin-bottom: 20px; /* Pridanie medzery medzi jednotlivými kontajnermi na menších obrazovkách */
+    }
+  }
+  

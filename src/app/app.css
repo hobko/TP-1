@@ -1,36 +1,54 @@
+/* Globálne štýly */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Základné štýly pre App kontajner */
 .App {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   
-  header,footer {
-    background-color: #333;
-    color: #fff;
-    padding: 8px;
-    text-align: center;
-    flex: 0 0 auto; /* Flexibilita pri zmene veľkosti okna */
+}
+
+header, main, footer {
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+header {
+  background-color: #333; /* Sivá farba */
+  color: #fff; /* Biela farba textu */
+}
+
+main {
+  flex-grow: 1;
+  background-color: #ffffff; /* Modrá farba */
+  color: #000000; /* Biela farba textu */
+}
+
+
+/* Štýly pre konkrétne komponenty */
+
+
+app-map {
+  padding: 20px;
+}
+
+/* Responzívne štýly */
+@media (max-width: 768px) {
+  header, footer {
+    padding: 10px;
   }
-  
   
   main {
-    flex: 1;
-    display: flex;
-    flex-wrap: wrap; /* Allow columns to wrap to the next row on smaller screens */
+    padding: 10px;
   }
   
-  .right-column {
-    flex: 2; /* Take up twice the space of the left column on smaller screens */
-    box-sizing: border-box;
-    margin: 0;
+  app-header, app-footer {
+    font-size: 14px;
   }
-  
-  /* Media query for larger screens */
-  @media (min-width: 768px) {
-    .right-column {
-      flex: 2; /* Take up twice the space of the left column on larger screens */
-      /*margin-left: 10px;  Adjust the margin to set the gap */
-    }
-  }
-  
+}

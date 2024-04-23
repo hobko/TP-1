@@ -1,40 +1,96 @@
 .container1 {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+  }
 
-}
-
-.file-label {
+  input{
+    display: none;
+    padding: 15px;
+  }
+  
+  .file-label {
+    margin-bottom: 10px;
     background-color: #333;
-    color: #fff;
-    padding: 15px 20px;
-    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    border: none;
+    margin: 30px;
     cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .selectedfile {
+    margin: 15px;
+  }
+  
+  .movetype {
+    margin-top: 10px;
+    background-color: #706868;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
     font-size: 16px;
     transition: background-color 0.3s ease;
-    margin-top: 20px;
-    
-}
-
-.file-label:hover {
-    background-color: #494b49;
-}
-
-input[type="file"] {
-    display: none;
-}
-
-.selectedfile {
-    display: none; /* Skryje obsah, kým nie je vybratý súbor */
-    text-align: center;
-    margin-top: 20px; /* Prispôsobte podľa potreby */
-}
-
-.selectedfile p {
-    margin-bottom: 10px;
-}
-
-.selectedfile p:last-child {
-    margin-bottom: 0;
-}
+        
+  }
+  
+  .vehicle-button {
+    margin-right: 10px;
+    background-color: #706868;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+    border: none;
+  
+  }
+  .vehicle-button.selected {
+    background-color: #000000; /* Farebné pozadie pre vybrané tlačidlo */
+    color: #fff; /* Biela farba textu pre vybrané tlačidlo */
+  }
+  
+  .updateButton{
+    margin-top: 10px;
+    margin-right: 10px;
+    background-color: #43ee3d;
+    color: #000000;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+    border: none;
+  }
+  .deleteButton{
+    margin-top: 10px;
+    margin-right: 10px;
+    background-color: #e64343;
+    color: rgb(0, 0, 0);
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+    border: none;
+  }
+  
+  /* Responzívne štýly */
+  @media (max-width: 768px) {
+    .vehicle-button {
+      margin-right: 5px;
+      font-size: 12px;
+    }
+  
+    .deleteButton, button {
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+  }
+  
