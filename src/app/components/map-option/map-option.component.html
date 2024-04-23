@@ -1,19 +1,41 @@
 <div class="options-container">
-  <div class="options">
-    <h3>Zoznam nahranych tras</h3>
-    <ul>
-      <li *ngFor="let file of files" (click)="onOptionClick(file)">
-        <div class="file-item">
-          <!-- Use img tag to display the icon -->
-          <img src="../../../assets/Icons/gpx.png" alt="GPX Icon" class="file-icon"/>
-          <span class="file-name">{{ file }}</span>
-          <img src="../../../assets/Icons/delete.png" alt="Delete Icon" class="file-icon" (click)="onDeleteClick($event, file)"/>
-          <img src="../../../assets/Icons/download.png" alt="Download Icon" class="file-icon" (click)="onDownloadClick($event, file)"/>
-        </div>
-      </li>
-    </ul>
-  </div>
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>File</th>
+        <th>Inserted Time</th>
+        <th>Vehicle type</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let file of files">
+        <td>
+          <img src="../../../assets/Icons/gpx.png" alt="GPX Icon" class="file-icon mr-2"/>
+          <span class="file-name">{{ file.filename }}</span> <!-- Use file.filename to display the filename -->
+        </td>
+        <td>{{ file.inserted_date }}</td>
+        <td>
+          <div class="text-center">
+            <ng-container *ngIf="file.vehicle_type === 'car'">
+              <img src="../../../assets/Icons/car.png" alt="Car Icon" class="car-icon mr-2"/>
+            </ng-container>
+            <ng-container *ngIf="file.vehicle_type === 'foot'">
+              <img src="../../../assets/Icons/walk.png" alt="Foot Icon" class="foot-icon mr-2"/>
+            </ng-container>
+          </div> 
+        </td>
+        <td>
+          <img src="../../../assets/Icons/delete.png" alt="Delete Icon" class="file-icon mr-2" (click)="onDeleteClick($event, file.filename)"/>
+          <img src="../../../assets/Icons/download.png" alt="Download Icon" class="file-icon" (click)="onDownloadClick($event, file.filename)"/>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
+
+
 
 <div class="options-container">
   <div class="options">

@@ -10,6 +10,13 @@ import { SuccessMessages } from '../messages/success-messages';
 import { InfoMessages } from '../messages/info-messages';
 import { WarningMessages } from '../messages/warning-messages';
 
+export interface FileResponse {
+  files: string[];
+  filename : string;
+  vehicle_type: string;
+  inserted_date: string; 
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -28,8 +35,8 @@ export class FileService {
   }
 
   // Servica ktora nam zastresuje vytiahnutie Filov na FE
-  getFiles(): Observable<{ files: string[] }> {
-    return this.http.get<{ files: string[] }>(endpoints.apiGetFiles);
+  getFiles(): Observable<FileResponse> {
+    return this.http.get<FileResponse>(endpoints.apiGetFiles);
   }
 
   deleteFilesFromUploads(selectedFiles: string[]): Observable<any> {

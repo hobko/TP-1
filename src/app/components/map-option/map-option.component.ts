@@ -2,6 +2,7 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FileService } from '../../services/file.service';
 import { NotificationService } from 'src/app/services/notification.service';
+import { FileResponse } from 'src/app/services/file.service'
 
 @Component({
   selector: 'app-map-option',
@@ -10,13 +11,16 @@ import { NotificationService } from 'src/app/services/notification.service';
 })
 export class MapOptionComponent {
   @Output() optionClicked = new EventEmitter<{ option: string, name: string }>();
-  files: string[] = [];
   upload_files: { name: string, selected: boolean }[] = [];
   selectAllCheckbox: boolean = false; // Property to bind to the checkbox in the thead
   selectAll = false;
+  files: FileResponse[] = [];
 
   constructor(private fileService: FileService,
               private notificationService: NotificationService,) {}
+  
+  
+
 
   ngOnInit(): void {
     this.loadFiles();
@@ -35,11 +39,31 @@ export class MapOptionComponent {
       }
     });
   }
+  
   loadFiles(): void {
     this.fileService.getFiles().subscribe(response => {
-      this.files = response.files;
+      // Log the entire response for debugging
+      console.log('Response:', response);
+  
+      // Check if the response is an array
+      if (Array.isArray(response)) {
+        // Assign the response directly to files
+        this.files = response;
+  
+        // If you want to display the file details on the frontend
+        // Update the files array to include the vehicle type and inserted time
+        // For example:
+        this.files.forEach(file => {
+          file.inserted_date = new Date(file.inserted_date).toLocaleString(); // Convert inserted_date to a formatted string
+        });
+      } else {
+        console.error('Invalid response format. Expected an array.');
+        // Handle the error or set files to an empty array
+        this.files = [];
+      }
     });
   }
+
 
   onOptionClick(option: string): void {
     console.log('Clicked on option:', option);
