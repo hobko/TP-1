@@ -1,51 +1,72 @@
 <div class="options-container">
-    <div class="options">
-      <h3>Zoznam nahratých trás</h3>
-      <ul>
-        <li *ngFor="let file of files" (click)="onOptionClick(file)">
-          <div class="file-item">
-            <!-- Use img tag to display the icon -->
-            <img src="../../../assets/Icons/gpx.png" alt="GPX Icon" class="file-icon"/>
-            <span class="file-name">{{ file }}</span>
-            <img src="../../../assets/Icons/delete.png" alt="Delete Icon" class="file-icon" (click)="onDeleteClick($event, file)"/>
-            <img src="../../../assets/Icons/download.png" alt="Download Icon" class="file-icon" (click)="onDownloadClick($event, file)"/>
-          </div>
-        </li>
-      </ul>
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>Súbor</th>
+        <th>Čas nahratia</th>
+        <th>Typ prepravy</th>
+        <th>Možnosti</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let file of files "(click)="onOptionClick(file.filename)">
+        <td (click)="onOptionClick(file.filename)">
+          <img src="../../../assets/Icons/gpx.png" alt="GPX Icon" class="file-icon mr-2"/>
+          <span class="file-name">{{ file.filename }}</span> <!-- Use file.filename to display the filename -->
+        </td>
+        <td>{{ file.inserted_date }}</td>
+        <td>
+          <div class="text-center">
+            <ng-container *ngIf="file.vehicle_type === 'car'">
+              <img src="../../../assets/Icons/car.png" alt="Car Icon" class="car-icon mr-2"/>
+            </ng-container>
+            <ng-container *ngIf="file.vehicle_type === 'foot'">
+              <img src="../../../assets/Icons/walk.png" alt="Foot Icon" class="foot-icon mr-2"/>
+            </ng-container>
+          </div> 
+        </td>
+        <td>
+          <img src="../../../assets/Icons/delete.png" alt="Delete Icon" class="file-icon mr-2" (click)="onDeleteClick($event, file.filename)"/>
+          <img src="../../../assets/Icons/download.png" alt="Download Icon" class="file-icon" (click)="onDownloadClick($event, file.filename)"/>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<div class="options-container">
+  <div class="options">
+    <h3>Zoznam upload</h3>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>
+              <input type="checkbox" [(ngModel)]="selectAllCheckbox" (change)="toggleSelectAll()">
+            </th>
+            <th>Názov súboru</th>
+            <th>
+              <button class="btn btn-primary" (click)="convertSelectedFiles()">Spracovať</button>
+            </th>
+            <th>
+              <button class="btn btn-danger" (click)="deleteSelectedFiles()">Zmazať</button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let upload_file of upload_files; let i = index">
+            <td>
+              <input type="checkbox" [(ngModel)]="upload_file.selected">
+            </td>
+            <td colspan="3">{{ upload_file.name }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  
-  <div class="options-container">
-    <div class="options">
-      <h3>Zoznam upload</h3>
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>
-                <input type="checkbox" [(ngModel)]="selectAllCheckbox" (change)="toggleSelectAll()">
-              </th>
-              <th>Názov súboru</th>
-              <th>
-                <button class="btn btn-primary" (click)="convertSelectedFiles()">Spracovať</button>
-              </th>
-              <th>
-                <button class="btn btn-danger" (click)="deleteSelectedFiles()">Zmazať</button>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let upload_file of upload_files; let i = index">
-              <td>
-                <input type="checkbox" [(ngModel)]="upload_file.selected">
-              </td>
-              <td colspan="3">{{ upload_file.name }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  
-  
-  
+</div>
+
+

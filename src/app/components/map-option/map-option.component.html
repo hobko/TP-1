@@ -2,15 +2,15 @@
   <table class="table table-bordered">
     <thead class="thead-dark">
       <tr>
-        <th>File</th>
-        <th>Inserted Time</th>
-        <th>Vehicle type</th>
-        <th>Actions</th>
+        <th>Súbor</th>
+        <th>Čas nahratia</th>
+        <th>Typ prepravy</th>
+        <th>Možnosti</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let file of files">
-        <td>
+      <tr *ngFor="let file of files "(click)="onOptionClick(file.filename)">
+        <td (click)="onOptionClick(file.filename)">
           <img src="../../../assets/Icons/gpx.png" alt="GPX Icon" class="file-icon mr-2"/>
           <span class="file-name">{{ file.filename }}</span> <!-- Use file.filename to display the filename -->
         </td>

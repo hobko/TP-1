@@ -4,8 +4,22 @@
   flex-direction: row; /* Rozloženie v rade */
   margin: 20px; /* Medzera medzi jednotlivými kontajnermi */
   flex: 1;
+  overflow-y: auto;
+    max-height: 300px;
+  
   
   }
+
+
+
+.car-icon{
+    height: 23px;
+    width: 23px;
+}
+.foot-icon {
+    height: 23px;
+    width: 23px;
+}
   
   .options {
     flex:1;
@@ -66,6 +80,12 @@
   
   .file-name {
     flex: 1; /* Roztiahne sa na celú dostupnú šírku */
+    cursor: pointer;
+    transition: filter 0.3s ease;
+
+  }
+  .file-name:hover {
+    filter: drop-shadow(1px 2px 5px rgba(0.9, 0.9, 0.8, 0.9)); /* Zmena filtra na zobrazenie tieňa po najazdení myšou */
   }
   
   .options table {

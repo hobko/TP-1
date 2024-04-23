@@ -24,23 +24,39 @@
   
   .selectedfile {
     margin: 15px;
+    margin-bottom: 10px;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    border: none;
+    margin: 30px;
+    border-radius: 5px;
+    display: flex;
+  flex-direction: column; /* Rozloženie v rade */
+  margin: 20px; /* Medzera medzi jednotlivými kontajnermi */
+  flex: 1;
+  overflow-y: auto;
+    max-height: 300px;
+    background-color: #f9f9f9; /* Farebné pozadie pre kontajner */
+    border: 1px solid #ddd; /* Hranica okolo kontajnera */
+    border-radius: 5px; /* Zaoblené rohy */
+   
+    
+
   }
   
   .movetype {
     margin-top: 10px;
-    background-color: #706868;
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 10px 20px;
     border: none;
-    cursor: pointer;
     border-radius: 5px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+    text-align: center;
+  
         
   }
   
   .vehicle-button {
-    margin-right: 10px;
+    margin: 7px;
     background-color: #706868;
     color: white;
     padding: 15px;
@@ -49,6 +65,7 @@
     font-size: 12px;
     transition: background-color 0.3s ease;
     border: none;
+    text-align: center;
   
   }
   .vehicle-button.selected {
@@ -56,10 +73,16 @@
     color: #fff; /* Biela farba textu pre vybrané tlačidlo */
   }
   
+  .text-center {
+    padding-top: 25px;
+  }
+  .file-name {
+    margin-top: 50px;
+  }
   .updateButton{
-    margin-top: 10px;
-    margin-right: 10px;
-    background-color: #43ee3d;
+    
+    margin: 7px;
+    background-color: #288a25;
     color: #000000;
     padding: 15px;
     cursor: pointer;
@@ -69,9 +92,9 @@
     border: none;
   }
   .deleteButton{
-    margin-top: 10px;
-    margin-right: 10px;
-    background-color: #e64343;
+    
+    margin: 7px;
+    background-color: #be3131;
     color: rgb(0, 0, 0);
     padding: 15px;
     cursor: pointer;
@@ -86,6 +109,7 @@
     .vehicle-button {
       margin-right: 5px;
       font-size: 12px;
+      padding: 5px 10px;
     }
   
     .deleteButton, button {

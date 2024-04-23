@@ -4,17 +4,37 @@
     
     <!-- Display selected file information -->
     <div class="selectedfile" *ngIf="selectedFile">
-      <p>Vybraný súbor: {{ selectedFile.name }}</p>
-      <p>Veľkosť súboru: {{ (selectedFile.size / 1024) | number: '1.2-2' }} KB</p>
+      <table class="table table-bordered">
+        <thead class="text-center">
+          <tr>
+            <th>Vybraný súbor:</th>
+            <th>Veľkosť súboru:</th>
+            <th colspan="3">Vyberte si typ prepravy:</th>
+            <th colspan="2">Možnosti:</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="text-center">
+            <td class="text-center">
+                <span class="file-name">{{ selectedFile.name }}</span> <!-- Use file.filename to display the filename -->
+            </td>
+            <td class="text-center">
+              <span>{{ (selectedFile.size / 1024) | number: '1.2-2' }} KB</span>
+            </td>
+            <td colspan="3">
+              <button class="vehicle-button" [class.selected]="selectedVehicle === 'car'" (click)="selectVehicle('car')">Auto</button>
+              <button class="vehicle-button" [class.selected]="selectedVehicle === 'foot'" (click)="selectVehicle('foot')">Chôdza</button>
+              <button class="vehicle-button" [class.selected]="selectedVehicle === 'mhd'" (click)="selectVehicle('mhd')">MHD</button>
+            </td>
+            <td colspan="2">
+              <button class="deleteButton" (click)="deleteSelectedFile()">Odstrániť výber</button>
+              <button class="updateButton" (click)="uploadFile()">Nahrať výber</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
       
-      <!-- Vehicle type buttons -->
-      <p class="movetype">Vyberte si typ prepravy:</p>
-      <button class="vehicle-button" [class.selected]="selectedVehicle === 'car'" (click)="selectVehicle('car')">Auto</button>
-      <button class="vehicle-button" [class.selected]="selectedVehicle === 'foot'" (click)="selectVehicle('foot')">Chôdza</button>
-      <button class="vehicle-button" [class.selected]="selectedVehicle === 'mhd'" (click)="selectVehicle('mhd')">MHD</button>
-     
-  
-      <button class="deleteButton" (click)="deleteSelectedFile()">Odstrániť výber</button>
-      <button class="updateButton" (click)="uploadFile()">Nahrať výber</button>
+    
     </div>
 </div>

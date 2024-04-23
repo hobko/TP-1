@@ -2,7 +2,7 @@
 @import '~ngx-toastr/toastr';
 
 body {
-  zoom: 0.8;
+  
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -12,10 +12,10 @@ body {
 }
 
 footer {
-  zoom: 0.8;
+  zoom: 0.95;
 }
 header {
-  zoom: 0.8;
+  zoom: 0.95;
 }
 
 code {
