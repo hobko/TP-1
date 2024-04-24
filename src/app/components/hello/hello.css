@@ -83,7 +83,7 @@
     
     margin: 7px;
     background-color: #288a25;
-    color: #000000;
+    color: #fff;
     padding: 15px;
     cursor: pointer;
     border-radius: 5px;
@@ -95,7 +95,7 @@
     
     margin: 7px;
     background-color: #be3131;
-    color: rgb(0, 0, 0);
+    color: #fff;
     padding: 15px;
     cursor: pointer;
     border-radius: 5px;
